@@ -1,0 +1,43 @@
+{{ if isset .Site.Params "app_links" }}
+{{ if .Site.Params.app_links.enable }}
+<section class="bar background-gray no-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {{ with .Site.Params.app_links.title }}
+                <div class="heading text-center">
+                    <h2>{{ . | markdownify }}</h2>
+                </div>
+                {{ end }}
+
+                {{ with .Site.Params.app_links.subtitle }}
+                <p class="lead">
+                  {{ . | markdownify }}
+                </p>
+                {{ end }}
+
+                <ul class="owl-carousel customers centered">
+                    {{ with .Site.Params.app_links.google_play_url }}
+                    <!-- https://play.google.com/intl/en_us/badges/ -->
+                    <li class="item" title="Get it on Google Play">
+                        <a href='{{ . }}?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                          <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ with .Site.Params.app_links.appstore_url }}
+                    <!-- https://linkmaker.itunes.apple.com/en-us?country=us&mediaType=ios_apps&term= -->
+                    <li class="item" title="Get it on the AppStore">
+                        <a href="{{ . }}" 
+                            style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2009-07-23&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;">
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+                <!-- /.owl-carousel -->
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}

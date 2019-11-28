@@ -68,3 +68,12 @@
   -moz-transform: translate3d(0,0,0);
   -ms-transform: translate3d(0,0,0);
 }
+
+/* centering */
+.owl-carousel.centered .owl-wrapper {
+	margin: 0 auto;
+    display: flex !important;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
